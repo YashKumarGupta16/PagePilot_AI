@@ -23,7 +23,7 @@ const DownloadButton = ({ html, css, js }) => {
   return (
     <button
       onClick={handleDownload}
-      className="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-white font-medium py-3 px-6 rounded-lg transition-colors border border-slate-600 mx-auto mt-8"
+      className="flex items-center gap-2 bg-surface hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 text-textMain font-medium py-3 px-6 rounded-lg transition-colors border border-border mx-auto mt-8"
     >
       <Download className="w-5 h-5" />
       Download Webpage Files (.zip)

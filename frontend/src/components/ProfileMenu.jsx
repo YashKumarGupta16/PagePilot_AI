@@ -32,7 +32,7 @@ const ProfileMenu = ({ user, onLogout }) => {
     <div className="relative" ref={menuRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 bg-surface hover:bg-slate-700 border border-slate-600 rounded-full px-4 py-2 transition-colors"
+        className="flex items-center gap-2 bg-surface hover:bg-slate-100 dark:hover:bg-slate-700 border border-border rounded-full px-4 py-2 transition-colors"
       >
         <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center font-bold text-white">
           {user.username.charAt(0).toUpperCase()}
@@ -42,8 +42,8 @@ const ProfileMenu = ({ user, onLogout }) => {
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-56 bg-surface border border-slate-700 rounded-xl shadow-xl overflow-hidden z-50">
-          <div className="p-4 border-b border-slate-700">
+        <div className="absolute right-0 mt-2 w-56 bg-surface border border-border rounded-xl shadow-xl overflow-hidden z-50">
+          <div className="p-4 border-b border-border">
             <p className="font-medium text-textMain">{user.username}</p>
             <p className="text-xs text-textMuted mt-1">Joined {new Date(user.createdAt).toLocaleDateString()}</p>
           </div>
@@ -51,7 +51,7 @@ const ProfileMenu = ({ user, onLogout }) => {
             <Link
               to="/profile"
               onClick={() => setIsOpen(false)}
-              className="flex items-center gap-3 px-4 py-2 text-sm text-textMain hover:bg-slate-700 transition-colors"
+              className="flex items-center gap-3 px-4 py-2 text-sm text-textMain hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
             >
               <User className="w-4 h-4 text-textMuted" />
               Your Profile
@@ -59,16 +59,16 @@ const ProfileMenu = ({ user, onLogout }) => {
             <Link
               to="/previous-work"
               onClick={() => setIsOpen(false)}
-              className="flex items-center gap-3 px-4 py-2 text-sm text-textMain hover:bg-slate-700 transition-colors"
+              className="flex items-center gap-3 px-4 py-2 text-sm text-textMain hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
             >
               <History className="w-4 h-4 text-textMuted" />
               Previous Work you did..
             </Link>
           </div>
-          <div className="border-t border-slate-700 py-2">
+          <div className="border-t border-border py-2">
             <button
               onClick={handleLogout}
-              className="flex items-center gap-3 px-4 py-2 text-sm text-red-400 hover:bg-slate-700 hover:text-red-300 transition-colors w-full text-left"
+              className="flex items-center gap-3 px-4 py-2 text-sm text-red-400 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-red-300 transition-colors w-full text-left"
             >
               <LogOut className="w-4 h-4" />
               Logout this session

@@ -21,14 +21,14 @@ const WebsitePreview = ({ html, css, js }) => {
 
   if (!srcDoc) {
     return (
-      <div className="w-full h-[600px] bg-slate-900 rounded-xl border border-slate-700 flex items-center justify-center text-textMuted">
+      <div className="w-full h-[600px] bg-slate-100 dark:bg-slate-900 rounded-xl border border-border flex items-center justify-center text-textMuted">
         Preview will appear here
       </div>
     );
   }
 
   return (
-    <div className="w-full bg-white rounded-xl overflow-hidden border border-slate-700 shadow-xl h-[600px]">
+    <div className="w-full bg-white rounded-xl overflow-hidden border border-border shadow-xl h-[600px]">
       <iframe
         title="Live Preview"
         srcDoc={srcDoc}

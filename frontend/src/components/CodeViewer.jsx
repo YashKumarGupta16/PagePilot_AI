@@ -22,8 +22,8 @@ const CodeViewer = ({ codeData }) => {
   if (!codeData) return null;
 
   return (
-    <div className="w-full bg-[#1e1e1e] rounded-xl overflow-hidden border border-slate-700 mt-8">
-      <div className="flex items-center justify-between bg-[#2d2d2d] px-4 py-2 border-b border-slate-700">
+    <div className="w-full bg-[#1e1e1e] rounded-xl overflow-hidden border border-border mt-8">
+      <div className="flex items-center justify-between bg-[#2d2d2d] px-4 py-2 border-b border-border">
         <div className="flex space-x-1">
           {tabs.map((tab) => (
             <button
@@ -32,7 +32,7 @@ const CodeViewer = ({ codeData }) => {
               className={`px-4 py-2 text-sm font-medium rounded-t-lg transition-colors ${
                 activeTab === tab.id
                   ? 'bg-[#1e1e1e] text-primary border-t-2 border-primary'
-                  : 'text-textMuted hover:text-textMain hover:bg-slate-700'
+                  : 'text-textMuted hover:text-textMain hover:bg-slate-200 dark:hover:bg-slate-700'
               }`}
             >
               {tab.label}
@@ -41,7 +41,7 @@ const CodeViewer = ({ codeData }) => {
         </div>
         <button
           onClick={handleCopy}
-          className="flex items-center gap-2 text-sm text-textMuted hover:text-textMain transition-colors bg-slate-800 px-3 py-1.5 rounded-md"
+          className="flex items-center gap-2 text-sm text-textMuted hover:text-textMain transition-colors bg-slate-200 dark:bg-slate-800 px-3 py-1.5 rounded-md"
         >
           {copied ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4" />}
           {copied ? 'Copied' : 'Copy'}

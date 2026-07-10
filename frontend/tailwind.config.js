@@ -4,15 +4,17 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        background: '#0f172a',
-        surface: '#1e293b',
-        primary: '#3b82f6',
-        primaryHover: '#2563eb',
-        textMain: '#f8fafc',
-        textMuted: '#94a3b8',
+        background: 'var(--background)',
+        surface: 'var(--surface)',
+        primary: 'var(--primary)',
+        primaryHover: 'var(--primaryHover)',
+        textMain: 'var(--textMain)',
+        textMuted: 'var(--textMuted)',
+        border: 'var(--border)',
       }
     },
   },

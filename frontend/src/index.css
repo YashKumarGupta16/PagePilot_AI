@@ -1,8 +1,28 @@
 @import "tailwindcss";
 @config "../tailwind.config.js";
 
+:root {
+  --background: #f8fafc;
+  --surface: #ffffff;
+  --primary: #3b82f6;
+  --primaryHover: #2563eb;
+  --textMain: #0f172a;
+  --textMuted: #64748b;
+  --border: #e2e8f0;
+}
+
+:root.dark {
+  --background: #0f172a;
+  --surface: #1e293b;
+  --primary: #3b82f6;
+  --primaryHover: #2563eb;
+  --textMain: #f8fafc;
+  --textMuted: #94a3b8;
+  --border: #334155;
+}
+
 @layer base {
   body {
-    @apply bg-background text-textMain antialiased;
+    @apply bg-background text-textMain antialiased transition-colors duration-200;
   }
 }

@@ -26,7 +26,7 @@ const AuthForm = ({ onAuthSuccess }) => {
   };
 
   return (
-    <div className="w-full max-w-md bg-surface p-8 rounded-xl shadow-lg border border-slate-700">
+    <div className="w-full max-w-md bg-surface p-8 rounded-xl shadow-lg border border-border">
       <h2 className="text-2xl font-bold mb-6 text-center text-textMain">
         {isLogin ? 'Hi..Welcome Back' : 'Please, Create an Account'}
       </h2>
@@ -42,7 +42,7 @@ const AuthForm = ({ onAuthSuccess }) => {
           <label className="block text-sm font-medium text-textMuted mb-1">Username</label>
           <input
             type="text"
-            className="w-full bg-slate-800 border border-slate-600 rounded-lg px-4 py-2 text-textMain focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+            className="w-full bg-background border border-border rounded-lg px-4 py-2 text-textMain focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
@@ -52,7 +52,7 @@ const AuthForm = ({ onAuthSuccess }) => {
           <label className="block text-sm font-medium text-textMuted mb-1">Password</label>
           <input
             type="password"
-            className="w-full bg-slate-800 border border-slate-600 rounded-lg px-4 py-2 text-textMain focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+            className="w-full bg-background border border-border rounded-lg px-4 py-2 text-textMain focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
