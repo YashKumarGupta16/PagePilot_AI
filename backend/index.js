@@ -48,7 +48,16 @@ app.use(passport.session());
 // Routes
 app.use('/', require('./routes/auth'));
 app.use('/', require('./routes/generateSite'));
-
+app.get('db-ping', async (req, res) => {
+  try {
+    await mongoose.connection.db.command({ ping: 1 });
+    return res.status(200).send("DB oinged successfully");
+  }
+  catch (err) {
+    console.error(err);
+    return res.status(500).send("DB ping failed");
+  }
+})
 // Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
