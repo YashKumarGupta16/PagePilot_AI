@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
-import { Sparkles } from 'lucide-react';
+import { Rocket, Sun, Moon } from 'lucide-react';
 import api from './api';
 
 // Components
@@ -15,10 +15,22 @@ import Profile from './pages/Profile';
 function App() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
 
   useEffect(() => {
     checkAuth();
   }, []);
+
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => setTheme(t => t === 'dark' ? 'light' : 'dark');
 
   const checkAuth = async () => {
     try {
@@ -51,19 +63,28 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen bg-background flex flex-col font-sans">
-        <nav className="border-b border-slate-700 bg-surface/50 backdrop-blur-sm sticky top-0 z-40">
+        <nav className="border-b border-border bg-surface/50 backdrop-blur-sm sticky top-0 z-40">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-16">
               <Link to="/" className="flex items-center gap-2">
                 <div className="bg-primary p-2 rounded-lg">
-                  <Sparkles className="w-5 h-5 text-white" />
+                  <Rocket className="w-5 h-5 text-white" />
                 </div>
                 <span className="text-xl font-bold text-textMain tracking-tight">PagePilot AI</span>
               </Link>
-              
-              {user && (
-                <ProfileMenu user={user} onLogout={handleLogout} />
-              )}
+
+              <div className="flex items-center gap-4">
+                <button
+                  onClick={toggleTheme}
+                  className="p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700/50 text-textMuted hover:text-textMain transition-colors"
+                  aria-label="Toggle theme"
+                >
+                  {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+                </button>
+                {user && (
+                  <ProfileMenu user={user} onLogout={handleLogout} />
+                )}
+              </div>
             </div>
           </div>
         </nav>

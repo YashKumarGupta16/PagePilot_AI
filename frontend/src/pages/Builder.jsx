@@ -47,7 +47,7 @@ const Builder = () => {
 
       {siteData && (
         <div className="space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-700">
-          <div className="bg-surface border border-slate-700 p-6 rounded-xl shadow-lg">
+          <div className="bg-surface border border-border p-6 rounded-xl shadow-lg">
             <h2 className="text-2xl font-bold text-textMain mb-2">{siteData.title}</h2>
             <p className="text-textMuted mb-4">{siteData.description}</p>
             {siteData.features && siteData.features.length > 0 && (
@@ -55,7 +55,7 @@ const Builder = () => {
                 <h3 className="text-sm font-semibold text-textMain uppercase tracking-wider mb-2">Features</h3>
                 <ul className="flex flex-wrap gap-2">
                   {siteData.features.map((feature, i) => (
-                    <li key={i} className="bg-slate-800 text-primary text-sm px-3 py-1 rounded-full border border-slate-700">
+                    <li key={i} className="bg-background text-primary text-sm px-3 py-1 rounded-full border border-border">
                       {feature}
                     </li>
                   ))}
