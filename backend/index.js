@@ -51,7 +51,7 @@ app.use('/', require('./routes/generateSite'));
 app.get('/db-ping', async (req, res) => {
   try {
     await mongoose.connection.db.command({ ping: 1 });
-    return res.status(200).send("DB oinged successfully");
+    return res.status(200).send("DB pinged successfully");
   }
   catch (err) {
     console.error(err);
