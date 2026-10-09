@@ -5,7 +5,7 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo').default;
 const passport = require('passport');
 const connectDB = require('./config/db');
-
+const mongoose = require('mongoose');
 // Connect to MongoDB
 connectDB();
 
